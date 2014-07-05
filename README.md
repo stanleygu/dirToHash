@@ -5,16 +5,23 @@
 
 ## Getting Started
 
-Install the module with: `npm install dirToHash`
+Install the module with: `npm install dirtohash`
 
 ```js
-var dirToHash = require('dirToHash').dirToHash;
-// "Hash of structure of directory tree"
-var hash = file.dirToHash('/path/to/your/directory', {
-  ignoreDirs: ['node_modules', 'bower_components'], // File extensions to exclude
-  ignoreExts: ['js', 'bak'], // Folder names to exclude
-});
+var dirtohash = require('dirtohash');
+dirtohash.awesome(); // "awesome"
 ```
+
+Install with cli command
+
+```sh
+$ npm install -g dirtohash
+$ dirtohash --help
+$ dirtohash --version
+```
+
+
+
 
 ## Documentation
 

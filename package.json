@@ -1,7 +1,7 @@
 {
-  "name": "dirToHash",
-  "version": "1.0.0",
-  "main": "lib/dirToHash.js",
+  "name": "dirtohash",
+  "version": "0.0.0",
+  "main": "lib/dirtohash.js",
   "description": "Simply get a hash from a file tree.",
   "homepage": "https://github.com/stanleygu/dirToHash",
   "bugs": "https://github.com/stanleygu/dirtohash/issues",
@@ -34,9 +34,5 @@
   },
   "scripts": {
     "test": "grunt"
-  },
-  "dependencies": {
-    "file": "^0.2.2",
-    "lodash": "^2.4.1"
   }
 }
