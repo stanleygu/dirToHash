@@ -1,0 +1,38 @@
+{
+  "name": "dirtohash",
+  "version": "0.0.0",
+  "main": "lib/dirtohash.js",
+  "description": "Simply get a hash from a file tree.",
+  "homepage": "https://github.com/stanleygu/dirToHash",
+  "bugs": "https://github.com/stanleygu/dirtohash/issues",
+  "author": {
+    "name": "Stanley Gu",
+    "email": "stanleygu@gmail.com",
+    "url": "http://stanleygu.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stanleygu/dirtohash"
+  },
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "dirtohash",
+    "file",
+    " tree",
+    " hash"
+  ],
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-tasks": "^0.4.0",
+    "time-grunt": "^0.3.1",
+    "jshint-stylish": "^0.2.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  }
+}
