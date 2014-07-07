@@ -60,31 +60,13 @@ exports.dirtohash = {
   'dirToHash': function(test) {
     test.expect(1);
     // tests here
-    test.deepEqual(dirtohash.dirToHash('test/testDir'), newHash, 'should be a hash.');
+    test.deepEqual(dirtohash.dirToHash('test/testDir'), newHash, 'should be able to read tree to hash.');
     test.done();
   },
   'hashToDir': function(test) {
     test.expect(1);
     // tests here
 
-    //var newHash = {
-    //  _type: 'dir',
-    //  _path: 'test/' + newDir,
-    //  testDir: {
-    //    _type: 'dir',
-    //    _path: 'test/testDir/' + newDir,
-    //    'example.txt': {
-    //      _type: 'file',
-    //      _path: 'test/testDir' + newDir,
-    //      _contents: 'This is example 1.\n'
-    //    },
-    //    'example2.md': {
-    //      _type: 'file',
-    //      _path: 'test/testDir' + newDir,
-    //      _contents: 'This is example 2.\n'
-    //    }
-    //  }
-    //};
     var newHash = {
       _type: 'dir',
       _path: 'test/testDir2',
@@ -108,7 +90,7 @@ exports.dirtohash = {
     test.deepEqual(
       dirtohash.dirToHash('test/' + newDir)[newDir],
       newHash,
-      'should be a hash.'
+      'should write hash to tree.'
     );
     test.done();
   }
