@@ -1,6 +1,6 @@
 {
   "name": "dirtohash",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "lib/dirtohash.js",
   "description": "Simply get a hash from a file tree.",
   "homepage": "https://github.com/stanleygu/dirtohash",
