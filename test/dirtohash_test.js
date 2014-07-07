@@ -1,6 +1,8 @@
 'use strict';
 
+var exec = require('child_process').exec;
 var dirtohash = require('../lib/dirtohash.js');
+
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -22,15 +24,92 @@ var dirtohash = require('../lib/dirtohash.js');
     test.ifError(value)
 */
 
+var newDir = 'testDir2';
+var newHash = {
+  _type: 'dir',
+  _path: 'test/testDir',
+  testDir: {
+    _type: 'dir',
+    _path: 'test/testDir',
+    'example.txt': {
+      _type: 'file',
+      _path: 'test/testDir',
+      _contents: 'This is example 1.\n'
+    },
+    'example2.md': {
+      _type: 'file',
+      _path: 'test/testDir',
+      _contents: 'This is example 2.\n'
+    }
+  }
+};
 exports.dirtohash = {
   setUp: function(done) {
     // setup here
     done();
   },
-  'no args': function(test) {
+  tearDown: function(done) {
+    exec('rm -rf test/' + newDir, function(err, out) {
+      console.log(out);
+      if (err) {
+        console.log(err);
+      }
+      done();
+    });
+  },
+  'dirToHash': function(test) {
     test.expect(1);
     // tests here
-    test.equal(dirtohash.awesome(), 'awesome', 'should be awesome.');
+    test.deepEqual(dirtohash.dirToHash('test/testDir'), newHash, 'should be a hash.');
+    test.done();
+  },
+  'hashToDir': function(test) {
+    test.expect(1);
+    // tests here
+
+    //var newHash = {
+    //  _type: 'dir',
+    //  _path: 'test/' + newDir,
+    //  testDir: {
+    //    _type: 'dir',
+    //    _path: 'test/testDir/' + newDir,
+    //    'example.txt': {
+    //      _type: 'file',
+    //      _path: 'test/testDir' + newDir,
+    //      _contents: 'This is example 1.\n'
+    //    },
+    //    'example2.md': {
+    //      _type: 'file',
+    //      _path: 'test/testDir' + newDir,
+    //      _contents: 'This is example 2.\n'
+    //    }
+    //  }
+    //};
+    var newHash = {
+      _type: 'dir',
+      _path: 'test/testDir2',
+      testDir: {
+        _type: 'dir',
+        _path: 'test/testDir2',
+        'example.txt': {
+          _type: 'file',
+          _path: 'test/testDir2/testDir',
+          _contents: 'This is example 1.\n'
+        },
+        'example2.md': {
+          _type: 'file',
+          _path: 'test/testDir2/testDir',
+          _contents: 'This is example 2.\n'
+        }
+      }
+    };
+    console.log(newHash);
+    dirtohash.hashToDir('test/' + newDir, newHash);
+    test.deepEqual(
+      dirtohash.dirToHash('test/' + newDir)[newDir],
+      newHash,
+      'should be a hash.'
+    );
     test.done();
   }
 };
